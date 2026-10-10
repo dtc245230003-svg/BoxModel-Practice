@@ -3,31 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài tập Sử dụng Box Model 1</title>
-    <!-- Liên kết tới tệp CSS riêng biệt -->
-    <link rel="stylesheet" href="style.css">
+    <title>Open Source Records - CSS Box Model Practice</title>
+    <style type="text/css">
+      /* 1. Reset thuộc tính mặc định của trình duyệt */
+      html, body, h1, h2, h3, h4, ul, ol, li, p, a {
+        padding: 0;
+        border: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      /* 2. Căn giữa khung trang web và áp dụng kích thước Box Model */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 650px;
+        margin: 30px auto;
+        padding: 25px;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+      }
+
+      /* 3. Tiêu đề chính h1 */
+      h1 {
+        color: #000000;
+        font-size: 30px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #440000;
+      }
+
+      /* 4. Menu liên kết điều hướng (Thẻ ul đầu tiên) */
+      body > ul:nth-of-type(1) {
+        list-style-type: none;
+        background-color: #f4f4f4;
+        padding: 10px 15px;
+        margin-bottom: 25px;
+        border-radius: 4px;
+        border: 1px solid #dddddd;
+      }
+
+      body > ul:nth-of-type(1) li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      body > ul:nth-of-type(1) li a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        color: #440000;
+        padding: 4px 8px;
+        transition: all 0.2s;
+      }
+
+      body > ul:nth-of-type(1) li a:hover {
+        background-color: #440000;
+        color: #ffffff;
+        border-radius: 3px;
+      }
+
+      /* 5. Tiêu đề nhóm h2 và h3 */
+      h2 {
+        color: #000000;
+        font-size: 22px;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #cccccc;
+      }
+
+      h3 {
+        color: #333333;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 6px;
+      }
+
+      /* 6. Đoạn văn p và liên kết a */
+      p {
+        color: #444444;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: #440000;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        color: #880000;
+      }
+
+      /* 7. Danh sách Thành viên (Thẻ ul thứ 2) */
+      body > ul:nth-of-type(2) {
+        list-style-type: disc;
+        margin-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      body > ul:nth-of-type(2) li {
+        color: #444444;
+        font-size: 14px;
+        margin-bottom: 6px;
+        padding-left: 5px;
+      }
+
+      /* 8. Danh sách Lịch trình biểu diễn (Thẻ ul thứ 3) */
+      body > ul:nth-of-type(3) {
+        list-style-type: none;
+        margin-top: 10px;
+      }
+
+      body > ul:nth-of-type(3) li {
+        background-color: #f9f9f9;
+        border: 1px solid #e5e5e5;
+        border-left: 5px solid #440000;
+        padding: 12px 15px;
+        margin-bottom: 12px;
+        border-radius: 4px;
+      }
+
+      body > ul:nth-of-type(3) li p {
+        margin-bottom: 4px;
+      }
+
+      body > ul:nth-of-type(3) li p:last-child {
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+    </style>
 </head>
 <body>
 
-    <h1>SO SÁNH BOX-SIZING TRONG CSS BOX MODEL</h1>
+    <h1>Open Source Records</h1>
 
-    <!-- Thẻ thứ 1: box-sizing content-box -->
-    <div class="card">
-        <h3>Thẻ 1: content-box</h3>
-        <p>Kích thước tổng = 280px + Padding + Border = <strong>330px x 200px</strong>.</p>
-    </div>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="bands.html">Bands</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-    <!-- Thẻ thứ 2: box-sizing border-box -->
-    <div class="card">
-        <h3>Thẻ 2: border-box</h3>
-        <p>Kích thước tổng giữ nguyên = <strong>280px x 150px</strong>.</p>
-    </div>
+    <h2>Regular Expressions</h2>
 
-    <!-- Thẻ thứ 3: box-sizing border-box -->
-    <div class="card">
-        <h3>Thẻ 3: border-box</h3>
-        <p>Kích thước tổng giữ nguyên = <strong>280px x 150px</strong>.</p>
-    </div>
+    <h3>Bio</h3>
+    <p>Regular Expressionists are a hip-hop trio from New York City.</p>
+
+    <h3>Members</h3>
+    <ul>
+      <li>Rekt - Vocals</li>
+      <li>Face-like - Vocals</li>
+      <li>DJ Regex Capture - Decks</li>
+    </ul>
+
+    <h3>Albums</h3>
+    <p>This group has no albums released, but they are recording one album right now.</p>
+
+    <h2>Tour Dates</h2>
+    <ul>
+      <li>
+        <p>July 16th, 2014 @ 7:00pm</p>
+        <p><a href="http://hob.com">House of Blues</a> - Orlando, FL</p>
+      </li>
+      <li>
+        <p>July 17th, 2014 @ 7:30pm</p>
+        <p>Jannus Landing - Tampa, FL</p>
+      </li>
+      <li>
+        <p>July 19th, 2014 @ 8:00pm</p>
+        <p>The Tabernacle - Atlanta, GA</p>
+      </li>
+      <li>
+        <p>July 20th, 2014 @ 7:30pm</p>
+        <p>40 Watt Club - Athens, GA</p>
+      </li>
+    </ul>
 
 </body>
 </html>
