@@ -1,58 +1,50 @@
-/* Reset lề mặc định của trang */
+/* 1. Thiết lập phông chữ & Reset lề mặc định cho các thẻ danh sách */
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    padding: 30px;
+    background-color: #f4f4f4;
 }
 
-/* 1. Định dạng Fixed Header (Menu phía trên) */
-.navbar {
-    overflow: hidden;
-    background-color: #333333;
-    position: fixed; /* Cố định vị trí so with khung nhìn trình duyệt */
-    top: 0;          /* Ghim sát mép trên */
-    left: 0;
-    width: 100%;     /* Phủ kín chiều rộng */
-    z-index: 1000;   /* Đảm bảo menu luôn nổi lên trên cùng */
-}
-
-.navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* 2. Định dạng khu vực nội dung chính */
-.main {
-    padding: 20px;
-    margin-top: 50px;    /* Đẩy nội dung xuống dưới để không bị Header che mất */
-    margin-bottom: 50px; /* Chừa khoảng trống phía dưới để không bị Footer che */
-    height: 1500px;      /* Chiều cao lớn để tạo thanh cuộn trang */
-    line-height: 1.8;
-}
-
-/* 3. Định dạng Fixed Footer (Chân trang phía dưới) */
-.footer {
-    position: fixed; /* Cố định vị trí */
-    bottom: 0;       /* Ghim sát mép dưới */
-    left: 0;
-    width: 100%;     /* Phủ kín chiều rộng */
-    background-color: #333333;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-}
-
-.footer p {
+#menu ul {
+    list-style: none; /* Bỏ dấu chấm đầu dòng (bullet) */
+    padding: 0;
     margin: 0;
+}
+
+/* 2. Định dạng kích thước và khung hiển thị cho từng mục (li) */
+#menu ul li {
+    position: relative; /* Làm điểm mốc tọa độ cho menu con căn chỉnh absolute theo */
+    width: 120px;
+    height: 30px;
+    padding: 0 20px;
+    background-color: black;
+    line-height: 30px;  /* Căn giữa chữ theo chiều dọc */
+    cursor: pointer;    /* Chuyển con trỏ chuột thành hình bàn tay */
+    border-bottom: 1px solid #333333;
+}
+
+/* 3. Định dạng liên kết (thẻ a) trong menu */
+#menu ul li a {
+    text-decoration: none; /* Bỏ gạch chân liên kết */
+    color: white;          /* Chữ màu trắng */
+    display: block;
+    white-space: nowrap;
+}
+
+/* 4. Hiệu ứng đổi màu nền khi đưa chuột vào mục chọn */
+#menu ul li:hover {
+    background-color: #444444;
+}
+
+/* 5. Định dạng Menu con (Submenu ul lồng bên trong) */
+#menu ul li ul {
+    position: absolute;   /* Cố định vị trí xuất hiện so với li cha */
+    top: 0;
+    left: 160px;          /* Đặt menu con sang bên phải (Width 120px + Padding 20px*2 = 160px) */
+    visibility: hidden;   /* Mặc định ẩn menu con */
+}
+
+/* 6. Hiển thị Menu con khi di chuột (:hover) vào thẻ li cha */
+#menu ul li:hover > ul {
+    visibility: visible;  /* Hiện menu con */
 }

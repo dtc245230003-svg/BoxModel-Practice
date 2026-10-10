@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hướng dẫn tạo Fixed Header & Footer</title>
+    <title>Thực hành Tạo Menu Dọc Dropdown</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Fixed Header (Thanh điều hướng cố định phía trên) -->
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-    </div>
-
-    <!-- Nội dung chính (Có chiều cao lớn để xuất hiện thanh cuộn) -->
-    <div class="main">
-        <h1>Fixed Top Menu</h1>
-        <h2>Scroll this page to see the effect</h2>
-        <h3>The navigation bar will stay at the top of the page while scrolling</h3>
-        
-        <p>Some text some text some text some text...</p>
-        <p>Some text some text some text some text...</p>
-        <p>Cuộn trang xuống dưới để kiểm tra menu luôn ghim ở mép trên màn hình.</p>
-        <p>Some text some text some text some text...</p>
-        <p>Some text some text some text some text...</p>
-    </div>
-
-    <!-- Fixed Footer (Thanh chân trang cố định phía dưới) -->
-    <div class="footer">
-        <p>&copy; 2026 CodeGym Practice - Fixed Header & Footer Demo</p>
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li>
+                <a href="#">Sản phẩm</a>
+                <ul>
+                    <li><a href="#">Laptop</a></li>
+                    <li><a href="#">Điện thoại</a></li>
+                    <li><a href="#">Phụ kiện</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dịch vụ</a>
+                <ul>
+                    <li><a href="#">Bảo hành</a></li>
+                    <li><a href="#">Sửa chữa</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
     </div>
 
 </body>
