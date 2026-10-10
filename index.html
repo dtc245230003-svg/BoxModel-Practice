@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành Box Model 2 - Box Shadow & Border Radius</title>
-    <style>
-        /* Khối div bên ngoài: Hình tròn với bóng đổ nội tuyến màu đỏ (indianred) */
-        div {
-            margin: auto;
-            padding: 35px;
-            width: 80px;
-            box-shadow: inset 0 0 22px indianred;
-            border-radius: 50%;
-        }
-
-        /* Khối div lồng bên trong: Góc bo nhẹ với bóng đổ nội tuyến màu xanh (seagreen) */
-        div > div {
-            padding: 0 0px 100px 0px;
-            border-radius: 3%;
-            box-shadow: inset 0 0 22px seagreen;
-        }
-    </style>
+    <title>Bài tập Sử dụng Box Model 1</title>
+    <!-- Liên kết tới tệp CSS riêng biệt -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div>
-        <div></div>
+    <h1>SO SÁNH BOX-SIZING TRONG CSS BOX MODEL</h1>
+
+    <!-- Thẻ thứ 1: box-sizing content-box -->
+    <div class="card">
+        <h3>Thẻ 1: content-box</h3>
+        <p>Kích thước tổng = 280px + Padding + Border = <strong>330px x 200px</strong>.</p>
+    </div>
+
+    <!-- Thẻ thứ 2: box-sizing border-box -->
+    <div class="card">
+        <h3>Thẻ 2: border-box</h3>
+        <p>Kích thước tổng giữ nguyên = <strong>280px x 150px</strong>.</p>
+    </div>
+
+    <!-- Thẻ thứ 3: box-sizing border-box -->
+    <div class="card">
+        <h3>Thẻ 3: border-box</h3>
+        <p>Kích thước tổng giữ nguyên = <strong>280px x 150px</strong>.</p>
     </div>
 
 </body>
