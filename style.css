@@ -1,74 +1,57 @@
-/* 1. Reset lề mặc định và định dạng phông chữ chung */
+/* 1. Định dạng reset lề chung */
 body {
     font-family: Arial, sans-serif;
-    margin: 30px;
-    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
 }
 
-/* 2. Khung chứa #menu chính */
-#menu {
-    height: 40px;
+/* 2. Thanh điều hướng sử dụng position: sticky */
+.sticky-menu {
+    position: sticky; /* Thuộc tính dính phần tử khi cuộn */
+    top: 0;           /* Điểm neo ghim ở đỉnh màn hình */
     background-color: #333333;
-    border-radius: 4px;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;    /* Đảm bảo thanh menu luôn đè lên trên nội dung khi cuộn */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-#menu ul {
+.sticky-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;             /* Sắp xếp các mục menu nằm ngang */
+    justify-content: center;   /* Căn giữa chuỗi menu */
 }
 
-/* 3. Xếp các mục menu cha nằm ngang bằng float: left */
-#menu > ul > li {
-    float: left;
-    position: relative; /* Làm mốc tọa độ để menu con căn chỉnh theo */
+.sticky-menu ul li {
+    margin: 0 15px;
 }
 
-/* 4. Định dạng các thẻ liên kết (thẻ a) */
-#menu ul li a {
-    display: block;
-    width: 130px;
-    height: 40px;
-    line-height: 40px; /* Căn giữa chữ theo chiều dọc */
-    text-align: center;
+.sticky-menu ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
 }
 
-/* 5. Đổi màu nền sang đỏ khi rê chuột qua liên kết */
-#menu ul li:hover > a {
-    background-color: #dc3545; /* Màu đỏ */
+.sticky-menu ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
 }
 
-/* 6. Định dạng menu con (Dropdown Submenu) */
-#menu ul ul {
-    position: absolute;
-    top: 40px;          /* Xuất hiện ngay dưới thanh menu cha */
-    left: 0;
-    background-color: #444444;
-    visibility: hidden; /* Mặc định ẩn menu con */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* 3. Định dạng kích thước các khu vực nội dung (Section) */
+section {
+    padding: 100px 20px;
+    height: 100vh; /* Mỗi phần chiếm 100% chiều cao màn hình để tạo thanh cuộn dài */
+    box-sizing: border-box;
 }
 
-/* Các mục li trong menu con được xếp dọc trở lại */
-#menu ul ul li {
-    float: none;
-    position: relative;
-    border-bottom: 1px solid #555555;
-}
-
-#menu ul ul li a {
-    text-align: left;
-    padding-left: 15px;
-    width: 145px; /* Kích thước vùng bấm cho menu con */
-}
-
-#menu ul ul li a:hover {
-    background-color: #dc3545;
-}
-
-/* 7. Hiển thị menu con khi đưa con trỏ chuột vào mục chọn cha */
-#menu ul li:hover > ul {
-    visibility: visible;
-}
+#home { background-color: #f4f4f4; }
+#about { background-color: #dddddd; }
+#services { background-color: #bbbbbb; }
+#contact { background-color: #999999; }
