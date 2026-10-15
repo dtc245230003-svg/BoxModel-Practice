@@ -1,120 +1,231 @@
-/* 1. Thiết lập cơ bản & Reset lề */
-html {
-    height: 100%;
+/* 1. RESET CHUNG & CONFIG CORE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    min-height: 1500px;  /* Đảm bảo trang có đủ độ dài để cuộn kiểm tra Header */
-    padding-top: 70px;   /* Khoảng đệm tránh việc Fixed Header che mất nội dung đầu trang */
-    box-sizing: border-box;
+    background-color: #f0f2f5;
+    color: #333333;
+    padding-top: 75px; /* Tránh cho Header cố định che khuất nội dung */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* 2. Định dạng Fixed Header */
+/* 2. HEADER CỐ ĐỊNH & LINK HOVER EFFECT */
 .main-header {
-    position: fixed;     /* Cố định Header theo khung nhìn trình duyệt */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333333;
+    height: 65px;
+    background-color: #1e272e;
     color: #ffffff;
-    padding: 15px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;        /* Căn chỉnh không gian Flexbox */
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;       /* Đảm bảo Header luôn nổi lên lớp trên cùng khi cuộn */
-    box-sizing: border-box;
+    padding: 0 30px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.main-header h1 {
-    margin: 0;
-    font-size: 22px;
-}
-
-.main-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.main-header nav ul li {
-    margin-left: 20px;
-}
-
-.main-header nav ul li a {
+.logo a {
     color: #ffffff;
-    text-decoration: none;
+    font-size: 24px;
     font-weight: bold;
-    transition: color 0.2s ease;
+    text-decoration: none; /* Bỏ gạch chân */
 }
 
-.main-header nav ul li a:hover {
-    color: #00bcd4;
+.logo span {
+    color: #ff4757;
 }
 
-/* 3. Bố cục Flexbox 3 cột (.page-container) */
-.page-container {
-    display: flex;               /* Biến container thành Flex layout */
-    justify-content: space-between;
-    margin: 20px;
-    gap: 20px;                   /* Khoảng cách giữa các cột */
+.head-link ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
-/* Định dạng chung cho Sidebar */
-.sidebar {
+.head-link a {
+    color: #dcdde1;
+    text-decoration: none; /* Bỏ gạch chân */
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Rê chuột vào liên kết: Bôi đậm và đổi màu */
+.head-link a:hover {
+    font-weight: bold;
+    color: #ff4757;
+}
+
+/* 3. KHU VỰC NỘI DUNG CHÍNH (CONTENT CONTAINER) */
+.content-container {
+    display: flex;
+    flex: 1;
+    max-width: 1200px;
+    margin: 20px auto;
+    width: 95%;
+    gap: 20px;
+}
+
+/* LEFT CONTENT (Menu danh sách video) */
+.left-content {
+    flex: 1;
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;             /* Giữ nguyên kích thước, không bị co lại khi thu hẹp màn hình */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.left-sidebar {
-    width: 200px;
-}
-
-.right-sidebar {
-    width: 200px;
-}
-
-/* Định dạng khu vực Nội dung chính */
-.main-content {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    flex-grow: 1;                /* Tự động mở rộng chiếm toàn bộ chiều rộng còn lại */
-    line-height: 1.6;
-}
-
-/* Kiểu dáng phụ cho danh sách Sidebar */
-.sidebar h3 {
-    margin-top: 0;
-    color: #333333;
+.left-content h3 {
     font-size: 18px;
-    border-bottom: 2px solid #00bcd4;
+    margin-bottom: 15px;
+    color: #1e272e;
+    border-bottom: 2px solid #ff4757;
     padding-bottom: 8px;
 }
 
-.sidebar ul {
+.video-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-.sidebar ul li {
+.video-list li {
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.video-list li a {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #f8f9fa;
+    color: #2f3542;
+    text-decoration: none; /* Bỏ gạch chân */
+    font-size: 14px;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+.video-list li.active a,
+.video-list li a:hover {
+    background-color: #ff4757;
+    color: #ffffff;
+    font-weight: bold; /* Bôi đậm khi hover */
+}
+
+.badge {
+    background-color: #2e86de;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-weight: normal;
+}
+
+/* RIGHT CONTENT (Khu vực phát video) */
+.right-content {
+    flex: 2.8;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Video Responsive Container */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Tỉ lệ chuẩn 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-info {
+    margin-top: 18px;
+}
+
+.video-info h2 {
+    font-size: 20px;
+    color: #1e272e;
+    margin-bottom: 8px;
+}
+
+.video-stats {
+    font-size: 13px;
+    color: #747d8c;
     margin-bottom: 12px;
 }
 
-.sidebar ul li a {
-    color: #555555;
-    text-decoration: none;
+.video-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #57606f;
 }
 
-.sidebar ul li a:hover {
-    color: #00bcd4;
+/* 4. FOOTER */
+.main-footer {
+    background-color: #1e272e;
+    color: #a4b0be;
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+.main-footer p {
+    margin: 4px 0;
+}
+
+/* 5. RESPONSIVE DESIGN (NÂNG CAO) */
+
+/* Cho Tablet (Màn hình dưới 992px) */
+@media (max-width: 992px) {
+    .content-container {
+        flex-direction: column-reverse; /* Đưa video lên trên, danh sách xuống dưới */
+    }
+
+    .right-content, .left-content {
+        width: 100%;
+    }
+}
+
+/* Cho Điện thoại di động (Màn hình dưới 600px) */
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 15px;
+    }
+
+    body {
+        padding-top: 90px;
+    }
+
+    .head-link ul {
+        gap: 12px;
+        margin-top: 8px;
+    }
+
+    .head-link a {
+        font-size: 13px;
+    }
+
+    .video-info h2 {
+        font-size: 16px;
+    }
 }

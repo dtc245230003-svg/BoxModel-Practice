@@ -3,54 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ Giản Lược</title>
+    <title>Hoạt Hình Trực Tuyến - Cartoon Web</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Cố Định (Fixed Header) -->
+    <!-- 1. HEADER CO DINH (FIXED HEADER) -->
     <header class="main-header">
-        <h1>Tiêu đề Trang Web</h1>
-        <nav>
+        <div class="logo">
+            <a href="#">🎬 <span>CartoonKids</span></a>
+        </div>
+        <nav class="head-link">
             <ul>
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Giới thiệu</a></li>
-                <li><a href="#">Dịch vụ</a></li>
-                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#new">Mới cập nhật</a></li>
+                <li><a href="#popular">Xem nhiều nhất</a></li>
+                <li><a href="#category">Thể loại</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Khung Bố Cục Chính (3 cột sử dụng Flexbox) -->
-    <div class="page-container">
-        
-        <!-- Sidebar Trái -->
-        <aside class="sidebar left-sidebar">
-            <h3>Sidebar Trái</h3>
-            <ul>
-                <li><a href="#">Danh mục 1</a></li>
-                <li><a href="#">Danh mục 2</a></li>
-                <li><a href="#">Danh mục 3</a></li>
+    <!-- 2. KHU VUC NOI DUNG CHINH (CONTENT CONTAINER) -->
+    <div class="content-container">
+
+        <!-- LEFT CONTENT: Danh sách / Menu video -->
+        <aside class="left-content">
+            <h3>Danh sách phim</h3>
+            <ul class="video-list">
+                <li class="active">
+                    <a href="#">
+                        <span class="badge">HD</span>
+                        1. Doraemon: Nobita và Lâu Đài Dưới Đáy Biển
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="badge">FullHD</span>
+                        2. Conan: Mầm Họa Của Sự Dối Trá
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="badge">HD</span>
+                        3. Tom & Jerry: Tập Phim Đặc Biệt
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="badge">FullHD</span>
+                        4. Shin Cậu Bé Bút Chì: Chuyến Phiêu Lưu
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="badge">HD</span>
+                        5. Pokemon: Hành Trình Mới
+                    </a>
+                </li>
             </ul>
         </aside>
 
-        <!-- Khu Vực Nội Dung Chính -->
-        <main class="main-content">
-            <h2>Nội dung chính của trang</h2>
-            <p>Đây là khu vực chứa nội dung quan trọng nhất của trang web. Chúng ta sẽ đặt các bài viết, sản phẩm, hoặc thông tin chi tiết tại đây.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, amet. Magnam, cumque. Repellendus, ea! Reprehenderit, quod. Ullam, quas. Dolorum, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, amet. Magnam, cumque. Repellendus, ea! Reprehenderit, quod. Ullam, quas. Dolorum, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, amet. Magnam, cumque. Repellendus, ea! Reprehenderit, quod. Ullam, quas. Dolorum, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, amet. Magnam, cumque. Repellendus, ea! Reprehenderit, quod. Ullam, quas. Dolorum, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo. Dolore, quod. Quos, nemo.</p>
+        <!-- RIGHT CONTENT: Trình phát video chính -->
+        <main class="right-content">
+            <!-- Nhúng Video YouTube bằng iframe -->
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="Phim Hoạt Hình Chọn Lọc" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-info">
+                <h2>Doraemon: Nobita và Lâu Đài Dưới Đáy Biển (Thuyết Minh HD)</h2>
+                <p class="video-stats">👁️ 150,230 lượt xem • 📅 Cập nhật: 2026</p>
+                <p class="video-desc">
+                    Phim hoạt hình được chọn lọc kỹ lưỡng dành cho trẻ em, nội dung giáo dục lành mạnh, không quảng cáo, chất lượng hình ảnh HD 720p/1080p sắc nét và thuyết minh tiếng Việt chuẩn.
+                </p>
+            </div>
         </main>
 
-        <!-- Sidebar Phải -->
-        <aside class="sidebar right-sidebar">
-            <h3>Sidebar Phải</h3>
-            <p>Đây là một sidebar khác, có thể chứa quảng cáo, bài viết liên quan hoặc các widget bổ trợ.</p>
-        </aside>
-
     </div>
+
+    <!-- 3. FOOTER -->
+    <footer class="main-footer">
+        <p>&copy; 2026 CartoonKids - Trang Web Xem Phim Hoạt Hình Trẻ Em Chất Lượng High Quality.</p>
+        <p>Nội dung an toàn, không quảng cáo, thân thiện với trẻ em.</p>
+    </footer>
 
 </body>
 </html>
