@@ -1,57 +1,120 @@
-/* 1. Định dạng reset lề chung */
+/* 1. Thiết lập cơ bản & Reset lề */
+html {
+    height: 100%;
+}
+
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-/* 2. Thanh điều hướng sử dụng position: sticky */
-.sticky-menu {
-    position: sticky; /* Thuộc tính dính phần tử khi cuộn */
-    top: 0;           /* Điểm neo ghim ở đỉnh màn hình */
-    background-color: #333333;
-    color: #ffffff;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    z-index: 1000;    /* Đảm bảo thanh menu luôn đè lên trên nội dung khi cuộn */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.sticky-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;             /* Sắp xếp các mục menu nằm ngang */
-    justify-content: center;   /* Căn giữa chuỗi menu */
-}
-
-.sticky-menu ul li {
-    margin: 0 15px;
-}
-
-.sticky-menu ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-    display: block;
-    transition: background-color 0.3s ease;
-}
-
-.sticky-menu ul li a:hover {
-    background-color: #575757;
-    border-radius: 5px;
-}
-
-/* 3. Định dạng kích thước các khu vực nội dung (Section) */
-section {
-    padding: 100px 20px;
-    height: 100vh; /* Mỗi phần chiếm 100% chiều cao màn hình để tạo thanh cuộn dài */
+    background-color: #f4f4f4;
+    min-height: 1500px;  /* Đảm bảo trang có đủ độ dài để cuộn kiểm tra Header */
+    padding-top: 70px;   /* Khoảng đệm tránh việc Fixed Header che mất nội dung đầu trang */
     box-sizing: border-box;
 }
 
-#home { background-color: #f4f4f4; }
-#about { background-color: #dddddd; }
-#services { background-color: #bbbbbb; }
-#contact { background-color: #999999; }
+/* 2. Định dạng Fixed Header */
+.main-header {
+    position: fixed;     /* Cố định Header theo khung nhìn trình duyệt */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;        /* Căn chỉnh không gian Flexbox */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;       /* Đảm bảo Header luôn nổi lên lớp trên cùng khi cuộn */
+    box-sizing: border-box;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.main-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-header nav ul li {
+    margin-left: 20px;
+}
+
+.main-header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.main-header nav ul li a:hover {
+    color: #00bcd4;
+}
+
+/* 3. Bố cục Flexbox 3 cột (.page-container) */
+.page-container {
+    display: flex;               /* Biến container thành Flex layout */
+    justify-content: space-between;
+    margin: 20px;
+    gap: 20px;                   /* Khoảng cách giữa các cột */
+}
+
+/* Định dạng chung cho Sidebar */
+.sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;             /* Giữ nguyên kích thước, không bị co lại khi thu hẹp màn hình */
+}
+
+.left-sidebar {
+    width: 200px;
+}
+
+.right-sidebar {
+    width: 200px;
+}
+
+/* Định dạng khu vực Nội dung chính */
+.main-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;                /* Tự động mở rộng chiếm toàn bộ chiều rộng còn lại */
+    line-height: 1.6;
+}
+
+/* Kiểu dáng phụ cho danh sách Sidebar */
+.sidebar h3 {
+    margin-top: 0;
+    color: #333333;
+    font-size: 18px;
+    border-bottom: 2px solid #00bcd4;
+    padding-bottom: 8px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+    color: #555555;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #00bcd4;
+}
